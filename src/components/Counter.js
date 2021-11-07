@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementCounter, decrementCounter } from "../redux/counter/action";
 
 const Count = ({ handleNavigate }) => {
+  const [value, setValue] = useState('')
   const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
-  const handleIncrement = () => {dispatch(incrementCounter())};
-  const handleDecrement = () => {dispatch(decrementCounter())};
+  const handleIncrement = () => {dispatch(incrementCounter(value))};
+  const handleDecrement = () => {dispatch(decrementCounter(value))};
 
   return (
     <div>
@@ -19,12 +21,13 @@ const Count = ({ handleNavigate }) => {
           justifyContent: "center",
         }}
       >
-        {/* <input
+        <input
           style={{ margin: 30 }}
+          type="number"
           placeholder="counter"
           value={value}
           onChange={(e) => setValue(e.target.value)}
-        /> */}
+        />
         <button onClick={handleIncrement}>increment</button>
         <div style={{ fontSize: 20, margin: 20 }}>{count}</div>
         <button onClick={handleDecrement}> decrement</button>

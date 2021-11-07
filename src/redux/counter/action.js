@@ -1,16 +1,11 @@
 import { type } from "./type";
 
- const incrementCounter = () => {
-  return { type: type.INCREMENT_COUNTER,  };
+const incrementCounter = (value) => {
+  return { type: type.INCREMENT_COUNTER, payload: value };
 };
 
-const decrementCounter = () => {
-
-  return { type: type.DECREMENT_COUNTER,  };
+const decrementCounter = (value) => {
+  return { type: type.DECREMENT_COUNTER, payload: value };
 };
 
-
-
-export  { incrementCounter , decrementCounter }
-
-
+export { incrementCounter, decrementCounter };
